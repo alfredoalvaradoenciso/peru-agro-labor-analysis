@@ -150,30 +150,23 @@ The figures use ENAHO survey weights (`fac500a`) and report mean hourly labor in
 
 The main objective is to assess whether the formal agroexporter sector exhibits different wage outcomes from other formal and informal workers in Peru.
 
----
+## Main findings
 
-# Important methodological caveat
+### 1. Formal agroexporter wages vs. the rest of the economy
 
-The agroexporter-sector classification should **not** be interpreted as a direct legal determination of whether an individual worker is employed by an agroexporting company.
+![Chart 1](charts/chart1.png)
 
-ENAHO does not directly observe several characteristics relevant to legal coverage, including the employer's legal status, registration, export activity, or whether the firm formally falls under the agricultural labor regime.
+According to ENAHO, **formal wages in the agroexporter sector are systematically close to informal wages in the rest of the economy**, showing that formal employment in this sector has not translated into earnings comparable to those of formal employment elsewhere.
 
-Therefore, the empirical strategy assumes that **economic activity, geographic location, and ISIC classification provide a sufficiently close observable approximation to the activities covered by Ley N.º 31110**.
+The gap between formal non-agro wages and formal agroexporter wages is large and persistent. **The agro sector consistently aligns with the lower end of the labor market, despite its formal employment status.**
 
-This approach prioritizes **reproducibility and consistency across ENAHO years**, while recognizing that some degree of classification error is unavoidable.
+This suggests that the sector's low wages are not simply an inherent characteristic of agricultural work. **For years, the legal framework allowed the sector to operate with lower labor costs than those prevailing under the general labor regime.**
 
----
+### 2. Informal agroexporter wages
 
-# Reproducibility
+![Chart 2](charts/chart2.png)
 
-The Stata code processes ENAHO annually from **2012 through 2025**, harmonizes the relevant variables, appends the annual datasets, constructs the analytical variables, and produces the wage comparisons.
+**Informal agro employment has been the lowest-paid segment of the salaried labor market for more than a decade.** Even during the agroexport boom, informal workers in the sector remained well below the national average.
 
-The analysis is designed to be reproducible provided that the corresponding ENAHO microdata are downloaded from INEI and the local data path is correctly specified in the Stata code.
+The persistence of this gap highlights the particularly vulnerable position of informal workers in the agricultural labor market.
 
-The main Stata global used to locate the annual ENAHO files is:
-
-```stata
-global enaho "C:\Users\...\ENAHO"
-```
-
-This path should be changed to the user's local ENAHO directory before running the code.
