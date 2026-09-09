@@ -4,16 +4,6 @@ This repository contains the code, data-processing procedures, methodology, and 
 
 The analysis uses Peru's **Encuesta Nacional de Hogares (ENAHO)** for 2012–2025 and identifies workers whose employment falls within the activities covered by Peru's agricultural labor legislation.
 
-## Repository structure
-
-```text
-.
-├── code/              # Stata do-files for data preparation and analysis
-├── charts/             # Exported figures
-├── methodology/        # Methodological notes and documentation
-├── data/               # Derived data / data documentation
-└── README.md
-```
 
 > Raw ENAHO microdata are not included in this repository. The code assumes that the corresponding annual ENAHO files are available locally.
 
