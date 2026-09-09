@@ -85,29 +85,25 @@ This classification is applied at the worker level using the economic activity r
 
 ---
 
-# Informality
+## Informality
 
-Labor informality is constructed rather than taken directly from a single ENAHO variable.
+Informality is defined consistently with the **INEI/OIT approach** for salaried workers, based on access to health insurance provided through the employer.
 
-The classification combines:
+The analysis uses:
 
-* `p507`: employment category;
-* `p510a1`: employment-related characteristic used for the informality classification;
-* `p4191`–`p4198`: insurance indicators;
-* `p419a1`–`p419a8`: corresponding insurance/coverage information.
+* `p4191–p4198`: whether the worker has each type of health insurance.
+* `p419a1–p419a8`: whether the employer pays for that insurance.
+* `p507`: identifies salaried workers; only categories 3, 4, and 6 are included in the wage analysis.
 
-Workers are initially classified as informal and subsequently reclassified as formal when the relevant insurance condition indicates formal coverage.
+`p510a1`, which measures the formal/informal status of employers and self-employed workers, is **not used**, since these groups are outside the salaried-worker sample.
 
-Missing or incomplete insurance information is treated as missing rather than automatically classified as formal or informal.
+The classification proceeds in three steps:
 
-The resulting variable is `informal`:
+1. **Default all workers to informal.**
+2. **Classify a worker as formal** if at least one health-insurance type is both reported (`p419j == 1`) and employer-paid (`p419aj == 1`).
+3. **Set the classification to missing** when the relevant insurance information is missing, rather than assuming that a missing response indicates informality.
 
-```text
-informal = 1 → informal employment
-informal = 0 → formal employment
-```
-
-The analysis distinguishes between formal and informal workers **within and outside the agroindustrial sector**.
+Thus, among salaried workers, informality is identified through the **absence of employer-provided health insurance**, while missing insurance information is treated as unknown rather than informal.
 
 ---
 
