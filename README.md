@@ -136,27 +136,6 @@ The resulting measure is interpreted as **hourly labor income in soles**.
 
 ---
 
-# Sample
-
-The analysis begins with the **working-age resident population (PET)** and retains currently employed workers:
-
-```text
-(p204 == 1 & p205 == 2) | (p204 == 2 & p206 == 1)
-```
-
-Only employed individuals are retained:
-
-```text
-ocu500 == 1
-```
-
-For the wage comparisons, the sample is subsequently restricted to salaried workers:
-
-```text
-p507 == 3 | p507 == 4 | p507 == 6
-```
-
----
 
 # Main comparisons
 
