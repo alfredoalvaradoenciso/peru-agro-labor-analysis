@@ -19,7 +19,7 @@ save `b`i''
 */
 
 local vars cong vivi hog codperso p419a1 p419a2 p419a3 p419a4 p419a5 p419a6 p419a7 p419a8 p4191 p4192 p4193 p4194 p4195 p4196 p4197 p4198
-forval i = 2019/2025 {
+forval i = 2012/2025 {
 use `vars' using "$enaho\\`i'\enaho01a-`i'-400", clear
 * 1. Default to informal
 gen byte sinseguro = 1
@@ -37,15 +37,15 @@ gen y=`i'
 tempfile h`i'
 save `h`i''
 }
-use `h2019', clear
-forval i= 2020/2025 {
+use `h2012', clear
+forval i= 2013/2025 {
 append using `h`i''
 }
 tempfile h
 save `h'
 
 local vars cong vivi hog codperso estrato p500i p204 p205 p206 ocu500 p506* p507 p510* p512* fac500a i524b1 i524a1 d529t d540t i538a1 i530a d536 i541a d543 i513t i518 i520 p519 p506 fac500a ubigeo
-forval i = 2019/2025 {
+forval i = 2012/2025 {
 use `vars' using "$enaho\\`i'\enaho01a-`i'-500", clear
 keep if (p204==1 & p205==2) | (p204==2 & p206==1) // nos quedamos con PET residente habitual
 keep if ocu500==1
@@ -82,8 +82,8 @@ tempfile b`i'
 save `b`i''
 }
 
-use `b2019', clear
-forval i= 2020/2025 {
+use `b2012', clear
+forval i= 2013/2025 {
 append using `b`i''
 }
 merge 1:1 y cong vivi hog codperso using `h'
@@ -127,23 +127,37 @@ reshape wide wnoagro wagro, i(y ) j(informal)
 merge 1:1 y using `total', nogen
 merge 1:1 y using `agro', nogen
 merge 1:1 y using `informal', nogen
+
 twoway ///
-    (line ingtot y, lwidth(thick) lpattern(solid)  lcolor(navy)) ///
-    (line agro1 y, lwidth(thick) lpattern(dash)   lcolor(cranberry)) ///
-    (line agro0 y, lwidth(thick) lpattern(shortdash) lcolor(forest_green)) ///
-	(line inf1 y, lwidth(thick) lpattern(dash)   lcolor(cranberry)) ///
-    (line inf0 y, lwidth(thick) lpattern(shortdash) lcolor(forest_green)) ///
-    (line wagro1 y, lwidth(thick) lpattern(dash_dot) lcolor(sienna)) ///
-    (line wagro0 y, lwidth(thick) lpattern(longdash) lcolor(teal)), ///
-    title("Wage Dynamics Over Time", size(medium)) ///
-    ytitle("Earnings") ///
-    xtitle("Year") ///
-    legend(order(1 "Total" ///
-	             2 "Agro" ///
-                 3 "Non Agro" ///
-                 4 "Informal" ///
-                 5 "Formal" ///
-                 6 "Informal - Agro-Exporter" ///
-                 7 "Formal - Agro-Exporter") ///
-           rows(2) position(6) ring(1) size(small))
+    (line wnoagro0 y, lwidth(thick) lcolor(navy) lpattern(solid)) ///
+    (line wnoagro1 y, lwidth(thick) lcolor(gs8) lpattern(dash)) ///
+    (line wagro0   y, lwidth(thick) lcolor(cranberry) lpattern(shortdash)), ///
+    title("El Agro Formal: Salario Similar al Informal, 2012–2025", size(medium)) ///
+    ytitle("Salario por hora (Soles)") ///
+    xtitle("Año") ///
+    legend(order(1 "Formal No Agro" ///
+                 2 "Informal No Agro" ///
+                 3 "Formal Agroexportador") ///
+           rows(1) position(6) ring(1) size(small)) ///
+    graphregion(color(white)) ///
+    plotregion(color(white))
+
+
+	
+twoway ///
+    (line wagro1   y, lwidth(thick) lcolor(cranberry) lpattern(solid)) ///
+    (line wnoagro1 y, lwidth(medthick) lcolor(gs8) lpattern(dash)) ///
+    (line inf1     y, lwidth(medthick) lcolor(emerald) lpattern(shortdash)) ///
+    (line ingtot   y, lwidth(medium) lcolor(navy) lpattern(dot)), ///
+    title("El Agro Informal: El Salario Más Bajo del Mercado, 2012–2025", size(medium)) ///
+    ytitle("Salario por hora (Soles)") ///
+    xtitle("Año") ///
+    legend(order(1 "Agro Informal" ///
+                 2 "No Agro Informal" ///
+                 3 "Informal Total" ///
+                 4 "Promedio Nacional") ///
+           rows(1) position(6) ring(1) size(small)) ///
+    graphregion(color(white)) ///
+    plotregion(color(white))
+
 
