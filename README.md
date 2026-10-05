@@ -150,13 +150,9 @@ According to ENAHO, **formal wages in the agroexporter sector are systematically
 
 The gap between formal non-agro wages and formal agroexporter wages is large and persistent. **The agro sector consistently aligns with the lower end of the labor market, despite its formal employment status.**
 
-This suggests that the sector's low wages are not simply an inherent characteristic of agricultural work. **For years, the legal framework allowed the sector to operate with lower labor costs than those prevailing under the general labor regime.**
-
 ### 2. Informal agroexporter wages
 
 ![Chart 2](charts/chart2.png)
 
 **Informal agro employment has been the lowest-paid segment of the salaried labor market for more than a decade.** Even during the agroexport boom, informal workers in the sector remained well below the national average.
-
-The persistence of this gap highlights the particularly vulnerable position of informal workers in the agricultural labor market.
 
